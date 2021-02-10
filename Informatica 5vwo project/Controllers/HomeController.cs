@@ -28,6 +28,12 @@ namespace Informatica_5vwo_project.Controllers
             return View();
         }
 
+        [Route("Zoek-pagina")]
+        public IActionResult ZoekPagina()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
