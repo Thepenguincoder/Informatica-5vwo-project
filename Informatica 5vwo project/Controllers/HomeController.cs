@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using MySql.Data;
 
 namespace Informatica_5vwo_project.Controllers
 {
@@ -28,8 +29,8 @@ namespace Informatica_5vwo_project.Controllers
             return View();
         }
 
-        [Route("Zoek-pagina")]
-        public IActionResult ZoekPagina()
+        [Route("overzicht")]
+        public IActionResult Overzicht()
         {
             return View();
         }
