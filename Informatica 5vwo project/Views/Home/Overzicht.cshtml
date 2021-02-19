@@ -1,4 +1,5 @@
-﻿@model List<string>
+﻿@using Informatica_5vwo_project.Databases
+@model List<Films>
 
 @{
     ViewData["Title"] = "overzich pagina";
@@ -10,15 +11,22 @@
 
 
 <div class"names-lijst">
-    <h1>Alle Namen!</h1>
-    @foreach(string naam in Model)
+    <h1>Alle Films!</h1>
+    @foreach(Films p in Model)
     {
-        <p>@naam</p>
+        <p>@p.Id - @p.Naam - @p.Beschrijving </p>
     }
 </div>
 
+
+
+
 <style>
     h1 {
-        margin-top: 15vh;
+        color: white;
+    }
+
+    p {
+        color:white;
     }
 </style>
