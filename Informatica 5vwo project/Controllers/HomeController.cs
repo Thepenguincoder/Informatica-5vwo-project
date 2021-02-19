@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace Informatica_5vwo_project.Controllers
 {
@@ -24,6 +25,55 @@ namespace Informatica_5vwo_project.Controllers
             return View();
         }
 
+
+
+
+
+
+
+        public List<string> GetNames()
+        {
+            // stel in waar de database gevonden kan worden
+            string connectionString = "Server = informatica.st - maartenscollege.nl; Port = 3306; Databse = 110411; Uid = 110411; Pwd = inf2021sql; ";
+
+            // maak een lege lijst waar we de namen in gaan opslaan
+            List<string> names = new List<string>();
+
+            // verbinding maken met de database
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                // verbinding openen
+                conn.Open();
+
+                // SQL query die we willen uitvoeren
+                MySqlCommand cmd = new MySqlCommand("select * from film", conn);
+
+                // resultaat van de query lezen
+                using (var reader = cmd.ExecuteReader())
+                {
+                    // elke keer een regel (of eigenlijk: database rij) lezen
+                    while (reader.Read())
+                    {
+                        // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
+                        string Name = reader["Naam"].ToString();
+
+                        // voeg de naam toe aan de lijst met namen
+                        names.Add(Name);
+                    }
+                }
+            }
+
+            // return de lijst met namen
+            return names;
+        }
+
+
+
+
+
+
+
+
         public IActionResult Privacy()
         {
             return View();
@@ -31,6 +81,12 @@ namespace Informatica_5vwo_project.Controllers
 
         [Route("overzicht")]
         public IActionResult Overzicht()
+        {
+            return View();
+        }
+
+        [Route("details")]
+        public IActionResult Details()
         {
             return View();
         }

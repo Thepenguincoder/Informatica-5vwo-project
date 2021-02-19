@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Zoek pagina";
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "overzich pagina";
 }
 
 @{
@@ -7,3 +9,16 @@
 }
 
 
+<div class"names-lijst">
+    <h1>Alle Namen!</h1>
+    @foreach(string naam in Model)
+    {
+        <p>@naam</p>
+    }
+</div>
+
+<style>
+    h1 {
+        margin-top: 15vh;
+    }
+</style>
