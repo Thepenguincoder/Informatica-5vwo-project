@@ -22,6 +22,8 @@ namespace Informatica_5vwo_project.Controllers
 
         public IActionResult Index()
         {
+            
+
             return View();
         }
 
@@ -34,7 +36,7 @@ namespace Informatica_5vwo_project.Controllers
         public List<string> GetNames()
         {
             // stel in waar de database gevonden kan worden
-            string connectionString = "Server = informatica.st - maartenscollege.nl; Port = 3306; Databse = 110411; Uid = 110411; Pwd = inf2021sql; ";
+            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<string> names = new List<string>();
@@ -46,7 +48,7 @@ namespace Informatica_5vwo_project.Controllers
                 conn.Open();
 
                 // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand("select * from film", conn);
+                MySqlCommand cmd = new MySqlCommand("select * from films", conn);
 
                 // resultaat van de query lezen
                 using (var reader = cmd.ExecuteReader())
@@ -82,7 +84,8 @@ namespace Informatica_5vwo_project.Controllers
         [Route("overzicht")]
         public IActionResult Overzicht()
         {
-            return View();
+            var names = GetNames();
+            return View(names);
         }
 
         [Route("details")]
