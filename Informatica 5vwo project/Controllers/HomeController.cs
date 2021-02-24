@@ -72,7 +72,7 @@ namespace Informatica_5vwo_project.Controllers
 
 
 
-        public List<Films> GetFilms()
+        public List<Films> GetFilmsOverzicht()
         {
             // stel in waar de database gevonden kan worden
             string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
@@ -117,6 +117,43 @@ namespace Informatica_5vwo_project.Controllers
 
 
 
+
+
+        private Films GetFilmsDetails(string id)
+        {
+            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+
+            List<Films> films = new List<Films>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // SQL query die we willen uitvoeren
+                MySqlCommand cmd = new MySqlCommand($"select * from films where id = {id}", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Films p = new Films
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Naam = reader["Naam"].ToString(),
+                            Beschrijving = reader["Beschrijving"].ToString(),
+                        };
+
+                        films.Add(p);
+                    }
+                }
+            }
+
+            return films[0];
+        }
+
+
+
+
         public IActionResult Index()
         {
             return View();
@@ -130,14 +167,16 @@ namespace Informatica_5vwo_project.Controllers
         [Route("overzicht")]
         public IActionResult Overzicht()
         {
-            var films = GetFilms();
+            var films = GetFilmsOverzicht();
             return View(films);
         }
 
-        [Route("details")]
-        public IActionResult Details()
+        [Route("films/{id}")]
+        public IActionResult Films(string id)
         {
-            return View();
+            var model = GetFilmsDetails(id);
+
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

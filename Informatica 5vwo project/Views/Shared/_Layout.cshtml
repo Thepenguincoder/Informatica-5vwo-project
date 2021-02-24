@@ -18,10 +18,13 @@
             <nav class="top-buttons">
                 <ul>
                     <a href="https://localhost:44314/overzicht">Overzicht</a>
-                    <a href="https://localhost:44314/details">Details</a>
+                    <a href="https://localhost:44314/films/1">Details</a>
                 </ul>
             </nav>
         </header>
+        <div class="page-content">
+
+        </div>
 </body>
 
 
@@ -37,15 +40,24 @@
         font-family: Arial, Helvetica, sans-serif;
         padding: 0;
         margin: 0;
-        scroll-behavior: smooth;
     }
 
     .nav-header {
         background-color: #FA630D;
-        width: 100%;
+        width: 100vw;
         height: 15vh;
+        margin-top: -15vh;
         position: fixed;
         z-index: 2;
+    }
+
+    .page-content {
+        background-color: black;
+        width: 100vw;
+        min-height: 100vh;
+        margin-top: 15vh;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
     }
 
     .top-logo {
@@ -53,7 +65,6 @@
         width:10vw;
         
     }
-
 
     .top-buttons ul {
         font-size: medium;
