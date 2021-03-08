@@ -1,6 +1,6 @@
 using System;
 
-namespace Informatica_5vwo_project.Models
+namespace _5vwo_Informatica.Models
 {
     public class ErrorViewModel
     {

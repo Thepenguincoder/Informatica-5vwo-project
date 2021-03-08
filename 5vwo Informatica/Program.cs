@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Informatica_5vwo_project
+namespace _5vwo_Informatica
 {
     public class Program
     {

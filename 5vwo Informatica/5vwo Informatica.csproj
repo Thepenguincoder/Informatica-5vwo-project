@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Informatica_5vwo_project</RootNamespace>
+    <RootNamespace>_5vwo_Informatica</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
