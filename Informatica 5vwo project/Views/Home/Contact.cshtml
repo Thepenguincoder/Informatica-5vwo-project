@@ -1,0 +1,27 @@
+﻿@model Informatica_5vwo_project.Databases.Person
+
+@{
+    ViewData["Title"] = "contact pagina";
+}
+
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div>Voornaam: <input type="text" name="firstname" /></div>
+    <div>Achternaam: <input type="text" name="lastname" /></div>
+    <div>E-mail: <input type="text" name="email" /></div>
+    <div>Telefoon: <input type="text" name="phone" /></div>
+    <div>Adres: <input type="text" name="Address" /></div>
+    <div>Beschrijving: <input type="text" name="description" /></div>
+    <input type="submit" value="verstuur" />
+</form>
+
+<!-- <p>Hallo Model.LastName, Model.FirstName Model.LastName</p>  voor elke Model moet een @, maar dan crashed het-->

@@ -171,13 +171,29 @@ namespace Informatica_5vwo_project.Controllers
             return View(films);
         }
 
-        [Route("films/{id}")]
-        public IActionResult Films(string id)
+        [Route("films/{naam}")]
+        public IActionResult Films(string naam)
         {
-            var model = GetFilmsDetails(id);
+            var model = GetFilmsDetails(naam);
 
             return View(model);
         }
+
+
+
+        [Route("Contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(Person person)
+        {
+            return View(person);
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
