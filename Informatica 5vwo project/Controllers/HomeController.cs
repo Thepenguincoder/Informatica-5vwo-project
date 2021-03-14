@@ -180,6 +180,11 @@ namespace Informatica_5vwo_project.Controllers
             return View(model);
         }
 
+        [Route("Error")]
+        public IActionResult Error()
+        {
+            return View();
+        }
 
 
         [Route("Contact")]
@@ -241,7 +246,7 @@ namespace Informatica_5vwo_project.Controllers
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error2()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
