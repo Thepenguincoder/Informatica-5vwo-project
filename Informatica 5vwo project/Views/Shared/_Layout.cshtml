@@ -9,8 +9,6 @@
     <link rel="icon" type="image/x-icon" href="/images/Screenshot 2020-03-27 at 14.08.08.png" />
 </head>
 <body>
-    @RenderBody()
-    <div class="page">
         <header class="nav-header">
             <nav class="top-logo">
                 <img src="" />
@@ -23,7 +21,7 @@
             </nav>
         </header>
         <div class="page-content">
-
+            @RenderBody()
         </div>
 </body>
 
@@ -56,6 +54,7 @@
         width: 100vw;
         min-height: 100vh;
         margin-top: 15vh;
+        margin-left: 1vw;
         padding-top: 1vh;
         padding-bottom: 1vh;
     }
