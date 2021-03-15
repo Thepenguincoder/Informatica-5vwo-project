@@ -154,8 +154,8 @@ namespace Informatica_5vwo_project.Controllers
 
 
 
-
-        public IActionResult Index()
+        [Route("")]
+        public IActionResult Home()
         {
             return View();
         }
