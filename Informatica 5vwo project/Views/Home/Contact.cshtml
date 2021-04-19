@@ -4,13 +4,9 @@
     ViewData["Title"] = "contact pagina";
 }
 
-
-
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 
 <h1>@ViewData["Title"]</h1>
 
@@ -24,4 +20,7 @@
     <input type="submit" value="verstuur" />
 </form>
 
-<!-- <p>Hallo Model.LastName, Model.FirstName Model.LastName</p>  voor elke Model moet een apestaartje, maar dan crashed het-->
+@if (Model != null)
+{
+    <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>  
+}
