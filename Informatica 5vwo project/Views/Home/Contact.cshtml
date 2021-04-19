@@ -12,11 +12,15 @@
 
 <form method="post">
     <div>Voornaam: <input type="text" name="firstname" /></div>
+    @Html.ValidationMessageFor(m => m.FirstName)
     <div>Achternaam: <input type="text" name="lastname" /></div>
+    @Html.ValidationMessageFor(m => m.LastName)
     <div>E-mail: <input type="text" name="email" /></div>
+    @Html.ValidationMessageFor(m => m.Email)
     <div>Telefoon: <input type="text" name="phone" /></div>
     <div>Adres: <input type="text" name="Address" /></div>
     <div>Beschrijving: <input type="text" name="description" /></div>
+    @Html.ValidationMessageFor(m => m.Description)
     <input type="submit" value="verstuur" />
 </form>
 
@@ -24,3 +28,10 @@
 {
     <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>  
 }
+
+
+<style>
+    form{
+        color: white
+    }
+</style>

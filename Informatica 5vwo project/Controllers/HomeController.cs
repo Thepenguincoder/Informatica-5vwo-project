@@ -193,13 +193,17 @@ namespace Informatica_5vwo_project.Controllers
             return View();
         }
 
+        [Route("Contact")]
         [HttpPost]
         public IActionResult Contact(Person person)
         {
+            if (ModelState.IsValid)
+                return View(person);
+
             return View(person);
         }
 
-
+       
 
 
 
