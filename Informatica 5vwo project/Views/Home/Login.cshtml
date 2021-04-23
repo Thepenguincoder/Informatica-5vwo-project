@@ -1,0 +1,27 @@
+﻿@model Informatica_5vwo_project.Databases.Person
+
+@{
+    ViewData["Title"] = "login pagina";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h1 class="display-4">Welcome, @ViewData["user"]</h1>
+
+<form method="post">
+    <div>gebruikersnaam: <input type="text" name="firstname" /></div>
+    <div>wachtwoord: <input type="text" name="lastname" /></div>
+    <input type="submit" value="verstuur" />
+</form>
+
+
+
+<style>
+    form{
+        color: white
+    }
+</style>

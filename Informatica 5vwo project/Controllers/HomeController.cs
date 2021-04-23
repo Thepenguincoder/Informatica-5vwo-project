@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 
 namespace Informatica_5vwo_project.Controllers
 {
@@ -207,7 +208,21 @@ namespace Informatica_5vwo_project.Controllers
             return View(person);
         }
 
-       
+
+        [Route("Login")]
+        public IActionResult Login(string username, string password)
+        {
+            if (password == "geheim")
+            {
+                HttpContext.Session.SetString("User", username);
+                ViewData["user"] = HttpContext.Session.GetString("User");
+                return View();
+            }
+
+            return View();
+        }
+
+
         private void SavePerson(Person person)
         {          
             using (MySqlConnection conn = new MySqlConnection(connectionString))
