@@ -20,10 +20,23 @@ namespace Informatica_5vwo_project
 
         public IConfiguration Configuration { get; }
 
+
+
+
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = "MyCookie";
+                options.IdleTimeout = TimeSpan.FromSeconds(1800);
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddControllersWithViews();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +58,7 @@ namespace Informatica_5vwo_project
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
