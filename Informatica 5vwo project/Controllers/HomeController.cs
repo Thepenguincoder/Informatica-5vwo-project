@@ -17,6 +17,10 @@ namespace Informatica_5vwo_project.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+        //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -32,8 +36,7 @@ namespace Informatica_5vwo_project.Controllers
 
         public List<string> GetNames()
         {
-            // stel in waar de database gevonden kan worden
-            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+           
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<string> names = new List<string>();
@@ -75,8 +78,7 @@ namespace Informatica_5vwo_project.Controllers
 
         public List<Films> GetFilmsOverzicht()
         {
-            // stel in waar de database gevonden kan worden
-            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<Films> films = new List<Films>();
@@ -122,8 +124,7 @@ namespace Informatica_5vwo_project.Controllers
 
         private Films GetFilmsDetails(string id)
         {
-            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
-
+            
             List<Films> films = new List<Films>();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -197,13 +198,29 @@ namespace Informatica_5vwo_project.Controllers
         [HttpPost]
         public IActionResult Contact(Person person)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) {
+
+                SavePerson(person);
                 return View(person);
+            }
 
             return View(person);
         }
 
        
+        private void SavePerson(Person person)
+        {          
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO filmklant(voornaam, achternaam, email) VALUE(?voornaam, ?achternaam, ?email)", conn);
+
+                cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.FirstName;
+                cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
+                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
+                cmd.ExecuteNonQuery();
+            }
+        }
 
 
 
