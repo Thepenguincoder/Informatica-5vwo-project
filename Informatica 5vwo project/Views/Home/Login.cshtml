@@ -10,7 +10,8 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<h1 class="display-4">Welcome, @ViewData["user"]</h1>
+<h1 class="display-4">Welkom, @ViewData["user"]</h1>
+<h1 class="display-4">Je wachtwoord is: @ViewData["password"]</h1>
 
 <form method="post">
     <div>gebruikersnaam: <input type="text" name="username" /></div>
@@ -21,7 +22,7 @@
 
 
 <style>
-    form{
+    form {
         color: white
     }
 </style>

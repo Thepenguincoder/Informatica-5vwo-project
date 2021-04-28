@@ -216,6 +216,8 @@ namespace Informatica_5vwo_project.Controllers
             {
                 HttpContext.Session.SetString("User", username);
                 ViewData["user"] = HttpContext.Session.GetString("User");
+                HttpContext.Session.SetString("Password", password);
+                ViewData["password"] = HttpContext.Session.GetString("Password");
                 return View();
             }
 
