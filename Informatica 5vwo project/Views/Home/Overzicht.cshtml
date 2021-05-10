@@ -12,10 +12,15 @@
 
 <div class"page-content">
     <h1>Alle Films!</h1>
-    @foreach(Films p in Model)
+    @foreach (Films p in Model)
     {
-        <p>@p.Id - @p.Naam - @p.Beschrijving </p>
+        <p><a href="https://localhost:44314/films/@p.Id">@p.Id - @p.Naam - @p.Beschrijving</a></p>
     }
 </div>
- 
 
+<style>
+    a {
+        color: white;
+        text-decoration: none;
+    }
+</style>
