@@ -11,24 +11,26 @@
 <div class="contact-content">
     <h1>@ViewData["Title"]</h1>
 
-    <form method="post">
-        <div>Voornaam: <input type="text" name="firstname" /></div>
-        @Html.ValidationMessageFor(m => m.FirstName)
-        <div>Achternaam: <input type="text" name="lastname" /></div>
-        @Html.ValidationMessageFor(m => m.LastName)
-        <div>E-mail: <input type="text" name="email" /></div>
-        @Html.ValidationMessageFor(m => m.Email)
-        <div>Telefoon: <input type="text" name="phone" /></div>
-        <div>Adres: <input type="text" name="Address" /></div>
-        <div>Beschrijving: <input type="text" name="description" /></div>
-        @Html.ValidationMessageFor(m => m.Description)
-        <input type="submit" value="verstuur" />
-    </form>
+    <div class="contact-blok">
+        <form method="post">
+            <div>Voornaam: <input type="text" name="firstname" /></div>
+            @Html.ValidationMessageFor(m => m.FirstName)
+            <div>Achternaam: <input type="text" name="lastname" /></div>
+            @Html.ValidationMessageFor(m => m.LastName)
+            <div>E-mail: <input type="text" name="email" /></div>
+            @Html.ValidationMessageFor(m => m.Email)
+            <div>Telefoon: <input type="text" name="phone" /></div>
+            <div>Adres: <input type="text" name="Address" /></div>
+            <div>Beschrijving: <input type="text" name="description" /></div>
+            @Html.ValidationMessageFor(m => m.Description)
+            <input type="submit" value="verstuur" />
+        </form>
 
-    @if (Model != null)
-    {
-        <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>
-    }
+        @if (Model != null)
+        {
+            <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>
+        }
+    </div>
 </div>
 
 <style>
@@ -38,7 +40,11 @@
 
     }
 
-    .contact-content {
+    .contact-content{
+
+    }
+
+    .contact-blok {
         background-color: orangered;
         padding-top: 4vw;
         width: 75vw;
@@ -50,5 +56,6 @@
         
     h1{
         margin-left: 1vw;
+        color: black;
     }
 </style>
