@@ -1,4 +1,5 @@
-﻿@model Informatica_5vwo_project.Databases.Films
+﻿@using Informatica_5vwo_project.Databases
+@model Informatica_5vwo_project.Databases.Films
 
 
 
@@ -11,7 +12,44 @@
 }
 
 
-<h1>@Model.Naam</h1>
+<div class="films-content">
+    <h1>@ViewData["Title"]</h1>
 
-<p>@Model.Beschrijving</p>
+    <div class="films-blok">
+        <img src="https://raw.githubusercontent.com/Thepenguincoder/Informatica-5vwo-project/OkayWeWorkFromThisNow/download%20(9).png" />
+        <div class="film-text">
+            <p class="naam">@Model.Naam</p>
+            <p class="overige-info">@Model.Genres, @Model.Taal, @Model.Leeftijd</p>
+            <p class="datum-tijd">@Model.Datum, @Model.Begintijd - @Model.Eindtijd</p>
+            <p class="description">@Model.Beschrijving</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    img {
+        float: left;
+        margin-right: 1vw;
+        border-radius: 5px;
+    }
+
+    .films-blok {
+        float: left;
+        display: block;
+        border-radius: 5px;
+        background-color: orangered;
+        color: black;
+        font-size: large;
+        text-align: justify;
+        text-decoration: none;
+        padding: 2vw 2vw 2vw 2vw;
+        width: 80vw;
+        height: 60vh;
+        margin: 1vw 0vw 1vw 10vw;
+    }
+
+    h1 {
+        margin-left: 11vw;
+    }
+</style>
 

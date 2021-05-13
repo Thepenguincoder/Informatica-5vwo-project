@@ -10,10 +10,10 @@
 
 <div class="login-content">
 
-    <h1>@ViewData["Title"]</h1>
+    <h1 class="titel">@ViewData["Title"]</h1>
     <div class="login-blok">
-        <h1 class="display-4">Welkom, @ViewData["user"]</h1>
-        <h1 class="display-4">Je wachtwoord is: @ViewData["password"]</h1>
+        <h1>Welkom, @ViewData["user"]</h1>
+        <h1>Je wachtwoord is: @ViewData["password"]</h1>
 
         <form method="post">
             <div>Gebruikersnaam: <input type="text" name="username" /></div>
@@ -25,8 +25,7 @@
 
 <style>
     form {
-        color: white;
-        padding-left: 1vw;
+        color: white;;
     }
 
     .login-content{
@@ -41,10 +40,11 @@
         border-radius: 5px;
         margin-left: 10vw;
         margin-right: 10vw;
-        margin-top: 10vw;
+        margin-top: 1vw;
+        padding-left: 1vw
     }
 
-    h1 {
+    .titel {
         margin-left: 11vw;
     }
 </style>
