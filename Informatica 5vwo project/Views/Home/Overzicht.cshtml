@@ -10,7 +10,7 @@
 }
 
 
-<div class="page-content">
+<div class="overzicht-content">
     <h1>Alle Films!</h1>
     <div class="films">
         @foreach (Films p in Model)
@@ -32,22 +32,19 @@
 </div>
 
 <style>
-    .page-content{
-        width: 100vw;
-    }
-
     a {
         color: white;
         text-decoration: none;
     }
 
     h1 {
-        margin: 2vw 0vw 1vw 10vw;
+        margin: 2vw 0vw 1vw 11vw;
     }
 
-    .poster {
+    .poster img{
         float: left;
         margin-right: 1vw;
+        border-radius: 5px;
     }
 
     .film-info {

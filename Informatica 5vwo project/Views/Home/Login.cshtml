@@ -9,18 +9,19 @@
 }
 
 <div class="login-content">
+
     <h1>@ViewData["Title"]</h1>
+    <div class="login-blok">
+        <h1 class="display-4">Welkom, @ViewData["user"]</h1>
+        <h1 class="display-4">Je wachtwoord is: @ViewData["password"]</h1>
 
-    <h1 class="display-4">Welkom, @ViewData["user"]</h1>
-    <h1 class="display-4">Je wachtwoord is: @ViewData["password"]</h1>
-
-    <form method="post">
-        <div>Gebruikersnaam: <input type="text" name="username" /></div>
-        <div>Wachtwoord: <input type="text" name="password" /></div>
-        <input type="submit" value="verstuur" />
-    </form>
+        <form method="post">
+            <div>Gebruikersnaam: <input type="text" name="username" /></div>
+            <div>Wachtwoord: <input type="text" name="password" /></div>
+            <input type="submit" value="verstuur" />
+        </form>
+    </div>
 </div>
-
 
 <style>
     form {
@@ -28,10 +29,14 @@
         padding-left: 1vw;
     }
 
-    .login-content {
+    .login-content{
+
+    }
+
+    .login-blok {
         background-color: orangered;
         padding-top: 2vw;
-        width: 75vw;
+        width: 80vw;
         padding-bottom: 20vw;
         border-radius: 5px;
         margin-left: 10vw;
@@ -40,6 +45,6 @@
     }
 
     h1 {
-        padding-left: 1vw;
+        margin-left: 11vw;
     }
 </style>
