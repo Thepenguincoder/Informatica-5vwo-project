@@ -8,30 +8,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="contact-content">
+    <h1>@ViewData["Title"]</h1>
 
-<form method="post">
-    <div>Voornaam: <input type="text" name="firstname" /></div>
-    @Html.ValidationMessageFor(m => m.FirstName)
-    <div>Achternaam: <input type="text" name="lastname" /></div>
-    @Html.ValidationMessageFor(m => m.LastName)
-    <div>E-mail: <input type="text" name="email" /></div>
-    @Html.ValidationMessageFor(m => m.Email)
-    <div>Telefoon: <input type="text" name="phone" /></div>
-    <div>Adres: <input type="text" name="Address" /></div>
-    <div>Beschrijving: <input type="text" name="description" /></div>
-    @Html.ValidationMessageFor(m => m.Description)
-    <input type="submit" value="verstuur" />
-</form>
+    <form method="post">
+        <div>Voornaam: <input type="text" name="firstname" /></div>
+        @Html.ValidationMessageFor(m => m.FirstName)
+        <div>Achternaam: <input type="text" name="lastname" /></div>
+        @Html.ValidationMessageFor(m => m.LastName)
+        <div>E-mail: <input type="text" name="email" /></div>
+        @Html.ValidationMessageFor(m => m.Email)
+        <div>Telefoon: <input type="text" name="phone" /></div>
+        <div>Adres: <input type="text" name="Address" /></div>
+        <div>Beschrijving: <input type="text" name="description" /></div>
+        @Html.ValidationMessageFor(m => m.Description)
+        <input type="submit" value="verstuur" />
+    </form>
 
-@if (Model != null)
-{
-    <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>  
-}
-
+    @if (Model != null)
+    {
+        <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>
+    }
+</div>
 
 <style>
     form{
-        color: white
+        color: white;
+        margin-left: 1vw;
+
+    }
+
+    .contact-content {
+        background-color: orangered;
+        padding-top: 4vw;
+        width: 75vw;
+        padding-bottom: 20vw;
+        border-radius: 5px;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+        
+    h1{
+        margin-left: 1vw;
     }
 </style>

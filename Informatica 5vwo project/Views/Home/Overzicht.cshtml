@@ -10,17 +10,41 @@
 }
 
 
-<div class"page-content">
+<div class="page-content">
     <h1>Alle Films!</h1>
-    @foreach (Films p in Model)
-    {
-        <p><a href="https://localhost:44314/films/@p.Id">@p.Id - @p.Naam - @p.Beschrijving</a></p>
-    }
+    <div class="films">
+        @foreach (Films p in Model)
+        {
+        <div class="film-info">
+            <p><a href="https://localhost:44314/films/@p.Id">@p.Id - @p.Naam - @p.Beschrijving</a></p>
+        </div>
+        }
+    </div>
+    
 </div>
 
 <style>
     a {
         color: white;
         text-decoration: none;
+    }
+
+    h1 {
+        margin-left: 10vw;
+    }
+
+    .film-info {
+        float: left;
+        display: block;
+        border-radius: 5px;
+        background-color: orangered;
+        color: black;
+        font-size: large;
+        text-align: justify;
+        text-decoration: none;
+        padding: 2vw 2vw 2vw 2vw;
+        width: 80vw;
+        height: auto;
+        margin: 5vw 0vw 0vw 10vw;
     }
 </style>
