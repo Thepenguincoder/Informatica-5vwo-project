@@ -14,18 +14,21 @@
                 <img src="https://raw.githubusercontent.com/Thepenguincoder/Informatica-5vwo-project/OkayWeWorkFromThisNow/download%20(9).png" />
             </nav>
             <nav class="top-buttons">
-                <ul>
-                    <li><a href="https://localhost:44314/">Home</a></li>
-                    <li><a href="https://localhost:44314/overzicht">Overzicht</a></li>
-                    <li><a href="https://localhost:44314/contact">Contact</a></li>
-                    <li><a href="https://localhost:44314/login">Login</a></li>
-                </ul>
+                    <a href="https://localhost:44314/">Home</a>
+                    <a href="https://localhost:44314/overzicht">Overzicht</a>
+                    <a href="https://localhost:44314/contact">Contact</a>
+                    <a href="https://localhost:44314/login">Login</a>
             </nav>
         </header>
         <div class="page-content">
             @RenderBody()
         </div>
 </body>
+
+
+
+
+
 
 
 
@@ -41,8 +44,6 @@
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), #FA630D;
         width: 100vw;
         height: 15vh;
-        margin-top: -15vh;
-        position: fixed;
         z-index: 2;
 
     }
@@ -51,7 +52,6 @@
         background-color: black;
         width: 100vw;
         min-height: 85vh;
-        margin-top: 15vh;
     }
 
     .top-logo img {
@@ -63,7 +63,7 @@
     }
 
     .top-buttons a {
-        margin: 4vh 0vw 0vw 4vw;
+        margin: 6vh 0vw 0vw 4vw;
         float: left;
         color: black;
         font-size: x-large;
@@ -79,4 +79,6 @@
         color: white;
     }
 </style>
+
+
 
