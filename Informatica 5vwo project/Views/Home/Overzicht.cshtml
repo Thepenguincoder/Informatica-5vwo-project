@@ -16,7 +16,14 @@
         @foreach (Films p in Model)
         {
         <div class="film-info">
-            <p><a href="https://localhost:44314/films/@p.Id">@p.Id - @p.Naam - @p.Beschrijving</a></p>
+            <a class="poster" href="https://localhost:44314/films/@p.Id">
+            <img src="https://raw.githubusercontent.com/Thepenguincoder/Informatica-5vwo-project/OkayWeWorkFromThisNow/download%20(9).png" />
+            </a>
+            <div class="film-text">
+                <p class="naam"><a href="https://localhost:44314/films/@p.Id">@p.Naam</a></p>
+                <p class="description">@p.Beschrijving</p>
+                <p class="overige-info">@p.Genres, @p.Taal, @p.Leeftijd</p>
+            </div>
         </div>
         }
     </div>
@@ -30,7 +37,11 @@
     }
 
     h1 {
-        margin-left: 10vw;
+        margin: 2vw 0vw 0vw 10vw;
+    }
+
+    .poster {
+        float: left;
     }
 
     .film-info {

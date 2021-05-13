@@ -12,5 +12,15 @@ namespace Informatica_5vwo_project.Databases
         public string Naam { get; set; }
 
         public string Beschrijving { get; set; }
+
+        public string Genres { get; set; }
+
+        public string Begintijd { get; set; }
+
+        public string Eindtijd { get; set; }
+
+        public string Leeftijd { get; set; }
+
+        public string Taal { get; set; }
     }
 }

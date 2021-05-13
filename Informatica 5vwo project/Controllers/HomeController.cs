@@ -105,6 +105,11 @@ namespace Informatica_5vwo_project.Controllers
                             Id = Convert.ToInt32(reader["Id"]),
                             Naam = reader["Naam"].ToString(),
                             Beschrijving = reader["Beschrijving"].ToString(),
+                            Genres = reader["Genres"].ToString(),
+                            Begintijd = reader["Begintijd"].ToString(),
+                            Eindtijd = reader["Eindtijd"].ToString(),
+                            Leeftijd = reader["Leeftijd"].ToString(),
+                            Taal = reader["Taal"].ToString(),
                         };
 
                         // voeg de naam toe aan de lijst met namen
