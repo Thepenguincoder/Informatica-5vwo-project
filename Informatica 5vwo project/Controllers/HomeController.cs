@@ -106,6 +106,7 @@ namespace Informatica_5vwo_project.Controllers
                             Naam = reader["Naam"].ToString(),
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Genres = reader["Genres"].ToString(),
+                            Datum = reader["Datum"].ToString(),
                             Begintijd = reader["Begintijd"].ToString(),
                             Eindtijd = reader["Eindtijd"].ToString(),
                             Leeftijd = reader["Leeftijd"].ToString(),

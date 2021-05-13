@@ -21,8 +21,9 @@
             </a>
             <div class="film-text">
                 <p class="naam"><a href="https://localhost:44314/films/@p.Id">@p.Naam</a></p>
-                <p class="description">@p.Beschrijving</p>
                 <p class="overige-info">@p.Genres, @p.Taal, @p.Leeftijd</p>
+                <p class="datum-tijd">@p.Datum, @p.Begintijd - @p.Eindtijd</p>
+                <p class="description">@p.Beschrijving</p>
             </div>
         </div>
         }
@@ -31,17 +32,22 @@
 </div>
 
 <style>
+    .page-content{
+        width: 100vw;
+    }
+
     a {
         color: white;
         text-decoration: none;
     }
 
     h1 {
-        margin: 2vw 0vw 0vw 10vw;
+        margin: 2vw 0vw 1vw 10vw;
     }
 
     .poster {
         float: left;
+        margin-right: 1vw;
     }
 
     .film-info {
@@ -56,6 +62,6 @@
         padding: 2vw 2vw 2vw 2vw;
         width: 80vw;
         height: auto;
-        margin: 5vw 0vw 0vw 10vw;
+        margin: 1vw 0vw 1vw 10vw;
     }
 </style>
