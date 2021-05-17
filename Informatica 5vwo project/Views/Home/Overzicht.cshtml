@@ -16,11 +16,11 @@
         @foreach (Films p in Model)
         {
         <div class="film-info">
-            <a class="poster" href="https://localhost:44314/films/@p.Id">
+            <a class="poster" href="https://localhost:44314/details/@p.Id">
             <img src="https://raw.githubusercontent.com/Thepenguincoder/Informatica-5vwo-project/OkayWeWorkFromThisNow/download%20(9).png" />
             </a>
             <div class="film-text">
-                <p class="naam"><a href="https://localhost:44314/films/@p.Id">@p.Naam</a></p>
+                <p class="naam"><a href="https://localhost:44314/details/@p.Id">@p.Naam</a></p>
                 <p class="overige-info">@p.Genres, @p.Taal, @p.Leeftijd</p>
                 <p class="datum-tijd">@p.Datum, @p.Begintijd - @p.Eindtijd</p>
                 <p class="description">@p.Beschrijving</p>

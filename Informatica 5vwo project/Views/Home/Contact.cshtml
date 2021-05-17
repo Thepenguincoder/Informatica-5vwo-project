@@ -1,17 +1,17 @@
 ﻿@model Informatica_5vwo_project.Databases.Person
 
 @{
-    ViewData["Title"] = "contact pagina";
+    ViewData["Title"] = "Contact pagina";
 }
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <div class="contact-content">
-    <h1>@ViewData["Title"]</h1>
+    <h1 class="titel">@ViewData["Title"]</h1>
 
-    <div class="contact-blok">
+    <div class="blok">
         <form method="post">
             <div>Voornaam: <input type="text" name="firstname" /></div>
             @Html.ValidationMessageFor(m => m.FirstName)
@@ -40,21 +40,4 @@
 
     }
 
-    .contact-content{
-
-    }
-
-    .contact-blok {
-        background-color: orangered;
-        padding-top: 4vw;
-        width: 80vw;
-        padding-bottom: 20vw;
-        border-radius: 5px;
-        margin-left: 10vw;
-        margin-right: 10vw;
-    }
-        
-    h1{
-        margin-left: 11vw
-    }
 </style>

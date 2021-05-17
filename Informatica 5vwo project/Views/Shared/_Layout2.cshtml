@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<link rel="stylesheet" href="~/css/site1.css" />-->
+    <meta charset="utf-8">
+    <title>De Beschouwburg</title>
+    <link rel="icon" type="image/x-icon" href="/images/Screenshot 2020-03-27 at 14.08.08.png" />
+</head>
+<body>
+        <header class="nav-header">
+            <nav class="top-logo">
+                <img src="https://raw.githubusercontent.com/Thepenguincoder/Informatica-5vwo-project/OkayWeWorkFromThisNow/download%20(9).png" />
+            </nav>
+            <nav class="top-buttons">
+                    <a href="https://localhost:44314/">Home</a>
+                    <a href="https://localhost:44314/overzicht">Overzicht</a>
+                    <a href="https://localhost:44314/contact">Contact</a>
+                    <a href="https://localhost:44314/login">Login</a>
+            </nav>
+        </header>
+        <div class="page-content">
+            @RenderBody()
+        </div>
+</body>
+
+
+
+
+
+
+
+
+<style>
+    html, body {
+        background-color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-header {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), #FA630D;
+        width: 100vw;
+        height: 15vh;
+        z-index: 2;
+
+    }
+
+    .page-content {
+        background-color: black;
+        width: 100vw;
+        min-height: 85vh;
+    }
+
+    .top-logo img {
+        float: left;
+        width: 12vh;
+        height: 12vh;
+        margin: 1.5vh 0vh 1.5vh 3vh;
+        border-radius: 5px;
+    }
+
+    .top-buttons a {
+        margin: 6vh 0vw 0vw 4vw;
+        float: left;
+        color: black;
+        font-size: x-large;
+        text-align: justify;
+        text-decoration: none;
+    }
+
+    .blok {
+        background-color: orangered;
+        color: black;
+        height: 65vh;
+        width: 80vw;
+        border-radius: 5px;
+        margin: 1vw 0vw 1vw 10vw;
+        padding: 2vw;
+    }
+
+    h1 {
+        margin-left: 11vw;
+        color: white;
+    }
+
+</style>
+
+
+

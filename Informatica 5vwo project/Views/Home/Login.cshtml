@@ -5,15 +5,15 @@
 }
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <div class="login-content">
 
     <h1 class="titel">@ViewData["Title"]</h1>
-    <div class="login-blok">
-        <h1>Welkom, @ViewData["user"]</h1>
-        <h1>Je wachtwoord is: @ViewData["password"]</h1>
+    <div class="blok">
+        <p>Welkom, @ViewData["user"]</p>
+        <p>Je wachtwoord is: @ViewData["password"]</p>
 
         <form method="post">
             <div>Gebruikersnaam: <input type="text" name="username" /></div>
@@ -25,26 +25,8 @@
 
 <style>
     form {
-        color: white;;
+        color: white;
     }
 
-    .login-content{
 
-    }
-
-    .login-blok {
-        background-color: orangered;
-        padding-top: 2vw;
-        width: 80vw;
-        padding-bottom: 20vw;
-        border-radius: 5px;
-        margin-left: 10vw;
-        margin-right: 10vw;
-        margin-top: 1vw;
-        padding-left: 1vw
-    }
-
-    .titel {
-        margin-left: 11vw;
-    }
 </style>
