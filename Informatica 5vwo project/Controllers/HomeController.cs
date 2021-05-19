@@ -18,8 +18,8 @@ namespace Informatica_5vwo_project.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
-        //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+        //string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+        string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
 
 
         public HomeController(ILogger<HomeController> logger)
@@ -201,9 +201,9 @@ namespace Informatica_5vwo_project.Controllers
             return View();
         }
 
-        [Route("Contact")]
+        [Route("Gelukt")]
         [HttpPost]
-        public IActionResult Contact(Person person)
+        public IActionResult Gelukt(Person person)
         {
             if (ModelState.IsValid) {
 

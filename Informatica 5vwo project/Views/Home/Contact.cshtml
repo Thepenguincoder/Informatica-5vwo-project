@@ -14,30 +14,28 @@
     <div class="blok">
         <form method="post">
             <div>Voornaam: <input type="text" name="firstname" /></div>
-            @Html.ValidationMessageFor(m => m.FirstName)
+            <p class="verplicht-bericht">@Html.ValidationMessageFor(m => m.FirstName)</p>
             <div>Achternaam: <input type="text" name="lastname" /></div>
-            @Html.ValidationMessageFor(m => m.LastName)
+            <p class="verplicht-bericht">@Html.ValidationMessageFor(m => m.LastName)</p>
             <div>E-mail: <input type="text" name="email" /></div>
-            @Html.ValidationMessageFor(m => m.Email)
+            <p class="verplicht-bericht">@Html.ValidationMessageFor(m => m.Email)</p>
             <div>Telefoon: <input type="text" name="phone" /></div>
+            <p></p>
             <div>Adres: <input type="text" name="Address" /></div>
+            <p></p>
             <div>Beschrijving: <input type="text" name="description" /></div>
-            @Html.ValidationMessageFor(m => m.Description)
+            <p class="verplicht-bericht">@Html.ValidationMessageFor(m => m.Description)</p>
             <input type="submit" value="verstuur" />
         </form>
-
-        @if (Model != null)
-        {
-            <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>
-        }
     </div>
 </div>
 
 <style>
-    form{
-        color: white;
-        margin-left: 1vw;
 
+    .verplicht-bericht {
+        font-style: italic;
     }
+
+
 
 </style>
