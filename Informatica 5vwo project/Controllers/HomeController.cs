@@ -206,14 +206,17 @@ namespace Informatica_5vwo_project.Controllers
         public IActionResult Contact(Person person)
         {
             if (ModelState.IsValid) {
-
-                SavePerson(person);
-                return View(person);
+                return Redirect("Succes");
             }
 
             return View(person);
         }
 
+        [Route("Succes")]
+        public IActionResult Succes()
+        {
+            return View();
+        }
 
         [Route("Login")]
         public IActionResult Login(string username, string password)
