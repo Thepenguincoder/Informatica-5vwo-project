@@ -13,29 +13,54 @@
 
     <div class="blok">
         <form method="post">
-            <div>Voornaam: <input type="text" name="firstname" /></div>
-            <p class="verplicht-bericht">@Html.ValidationMessageFor(m => m.FirstName)</p>
-            <div>Achternaam: <input type="text" name="lastname" /></div>
-            <p class="verplicht-bericht">@Html.ValidationMessageFor(m => m.LastName)</p>
-            <div>E-mail: <input type="text" name="email" /></div>
-            <p class="verplicht-bericht">@Html.ValidationMessageFor(m => m.Email)</p>
-            <div>Telefoon: <input type="text" name="phone" /></div>
-            <p></p>
-            <div>Adres: <input type="text" name="Address" /></div>
-            <p></p>
-            <div>Beschrijving: <input type="text" name="description" /></div>
-            <p class="verplicht-bericht">@Html.ValidationMessageFor(m => m.Description)</p>
-            <input type="submit" value="verstuur" />
+            <p>Voornaam:</p>
+            <div><input type="text" name="firstname" placeholder="Uw voornaam" /></div>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.FirstName)</p>
+            <p>Achternaam:</p>
+            <div><input type="text" name="lastname" placeholder="Uw achternaam" /></div>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.LastName)</p>
+            <p>Email:</p>
+            <div><input type="text" name="email" placeholder="voorbeeld@gmail.com" /></div>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.Email)</p>
+            <p>Telefoonnummer:</p>
+            <div><input type="text" name="phone" placeholder="Bijvoorbeeld: 0987654321" /></div>
+            <p>Adres:</p>
+            <div><input type="text" name="Address" placeholder="Straanlaan 11" /></div>
+            <p>Bericht:</p>
+            <div><input type="text" name="description" /></div>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.Description)</p>
+            <div><input type="submit" value="verstuur" /></div>
         </form>
+
+
+        @if (Model != null)
+        {
+            <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>
+        }
     </div>
 </div>
 
 <style>
-
-    .verplicht-bericht {
-        font-style: italic;
+    input {
+        width: 50%;
+        padding: 1vh 1vw;
+        border: solid #999;
+        border-radius: 5px;
+        background-color: #eee;
+        box-sizing: border-box;
     }
 
+    input[type=submit] {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        width: 25%;
+        padding: 1vh 1vw;
+        border: solid #888;
+        border-radius: 5px;
+        background-color: #bbb;
+    }
 
-
+    .verplicht {
+        margin-top: 1vw;
+    }
 </style>

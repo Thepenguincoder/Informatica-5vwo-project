@@ -201,9 +201,9 @@ namespace Informatica_5vwo_project.Controllers
             return View();
         }
 
-        [Route("Gelukt")]
+        [Route("Contact")]
         [HttpPost]
-        public IActionResult Gelukt(Person person)
+        public IActionResult Contact(Person person)
         {
             if (ModelState.IsValid) {
 

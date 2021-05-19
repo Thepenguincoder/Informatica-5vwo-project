@@ -16,17 +16,33 @@
         <p>Je wachtwoord is: @ViewData["password"]</p>
 
         <form method="post">
-            <div>Gebruikersnaam: <input type="text" name="username" /></div>
-            <div>Wachtwoord: <input type="text" name="password" /></div>
-            <input type="submit" value="verstuur" />
+            <p>Gebruikersnaam:</p>
+            <div><input type="text" name="username" placeholder="Uw gebruikersnaam" /></div>
+            <p>Wachtwoord:</p>
+            <div><input type="text" name="password" placeholder="Uw wachtwoord" /></div>
+            <div><input type="submit" value="Log in" /></div>
         </form>
     </div>
 </div>
 
 <style>
-    form {
-        color: white;
+    input {
+        width: 25%;
+        padding: 1vh 1vw;
+        border: solid #999;
+        border-radius: 5px;
+        background-color: #eee;
+        box-sizing: border-box;
     }
 
+
+    input[type=submit] {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        padding: 1vh 1vw;
+        border: solid #888;
+        border-radius: 5px;
+        background-color: #bbb;
+    }
 
 </style>
