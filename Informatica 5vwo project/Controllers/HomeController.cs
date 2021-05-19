@@ -11,6 +11,8 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Informatica_5vwo_project.Controllers
 {
@@ -160,6 +162,23 @@ namespace Informatica_5vwo_project.Controllers
             return films[0];
         }
 
+        static string ComputeSha256Hash(string rawData)
+        {
+            // Create a SHA256   
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // ComputeHash - returns byte array  
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                // Convert byte array to a string   
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
 
 
         [Route("")]
@@ -221,13 +240,22 @@ namespace Informatica_5vwo_project.Controllers
         [Route("Login")]
         public IActionResult Login(string username, string password)
         {
-            if (password == "geheim")
+            string hash = "dc00c903852bb19eb250aeba05e534a6d211629d77d055033806b783bae09937";
+
+            // is er een wachtwoord ingevoerd?
+            if (!string.IsNullOrWhiteSpace(password))
             {
-                HttpContext.Session.SetString("User", username);
-                ViewData["user"] = HttpContext.Session.GetString("User");
-                HttpContext.Session.SetString("Password", password);
-                ViewData["password"] = HttpContext.Session.GetString("Password");
-                return View();
+
+                //Er is iets ingevoerd, nu kunnen we het wachtwoord hashen en vergelijken met de hash "uit de database"
+                string hashVanIngevoerdWachtwoord = ComputeSha256Hash(password);
+                if (hashVanIngevoerdWachtwoord == hash)
+                {
+                    HttpContext.Session.SetString("User", username);
+                    ViewData["user"] = HttpContext.Session.GetString("User");
+                    HttpContext.Session.SetString("Password", password);
+                    ViewData["password"] = HttpContext.Session.GetString("Password");
+                    return View();
+                }
             }
 
             return View();
