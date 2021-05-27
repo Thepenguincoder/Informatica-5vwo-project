@@ -1,0 +1,62 @@
+﻿@model Informatica_5vwo_project.Databases.Person
+
+@{
+    ViewData["Title"] = "Sign-up pagina";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="contact-content">
+    <h1 class="titel">@ViewData["Title"]</h1>
+
+    <div class="blok">
+        <form method="post">
+            <p>Voornaam:</p>
+            <div><input type="text" name="voornaam" placeholder="Uw voornaam" /></div>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.FirstName)</p>
+
+            <p>Achternaam:</p>
+            <div><input type="text" name="achternaam" placeholder="Uw achternaam" /></div>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.LastName)</p>
+
+            <p>Email:</p>
+            <div><input type="text" name="email" placeholder="voorbeeld@gmail.com" /></div>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.Email)</p>
+
+            <p>Wachtwoord:</p>
+            <div><input type="text" name="wachtwoord" placeholder="Uw wachtwoord" /></div>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.Password)</p>
+
+            <div><input type="submit" value="verstuur" /></div>
+        </form>
+
+
+    </div>
+</div>
+
+<style>
+    input {
+        width: 50%;
+        padding: 1vh 1vw;
+        border: solid #999;
+        border-radius: 5px;
+        background-color: #eee;
+        box-sizing: border-box;
+    }
+
+        input[type=submit] {
+            margin-top: 1vw;
+            margin-bottom: 1vw;
+            width: 25%;
+            padding: 1vh 1vw;
+            border: solid #888;
+            border-radius: 5px;
+            background-color: #bbb;
+        }
+
+    .verplicht {
+        margin-top: 1vw;
+    }
+</style>

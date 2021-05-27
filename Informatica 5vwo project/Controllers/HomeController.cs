@@ -224,15 +224,42 @@ namespace Informatica_5vwo_project.Controllers
         [HttpPost]
         public IActionResult Contact(Person person)
         {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid) 
+            {
                 return Redirect("Succes");
             }
 
             return View(person);
         }
 
+        [Route("singup")]
+        public IActionResult Signup()
+        {
+            return View();
+        }
+
+        [Route("Signup")]
+        [HttpPost]
+        public IActionResult Signup(Person person)
+        {
+            if (ModelState.IsValid)
+            {
+                return Redirect("Succes2");
+            }
+
+            return View(person);
+        }
+
+
+
         [Route("Succes")]
         public IActionResult Succes()
+        {
+            return View();
+        }
+
+        [Route("Succes2")]
+        public IActionResult Succes2()
         {
             return View();
         }
@@ -262,16 +289,20 @@ namespace Informatica_5vwo_project.Controllers
         }
 
 
+        
+
+
         private void SavePerson(Person person)
         {          
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO filmklant(voornaam, achternaam, email) VALUE(?voornaam, ?achternaam, ?email)", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO filmklant(voornaam, achternaam, email, wachtwoord) VALUE(?voornaam, ?achternaam, ?email, ?wachtwoord)", conn);
 
                 cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.FirstName;
                 cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
                 cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
+                cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.Password;
                 cmd.ExecuteNonQuery();
             }
         }

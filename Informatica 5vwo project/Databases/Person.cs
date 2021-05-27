@@ -14,10 +14,9 @@ namespace Informatica_5vwo_project.Databases
         public string LastName { get; set; }
         [Required(ErrorMessage = "Het invullen van uw e-mailadress is verplich")]
         public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
-        [Required(ErrorMessage = "Het invullen van een bericht is verplichd")]
-        public string Description { get; set; }
+
+        [Required(ErrorMessage = "Het kiezen van een wachtwoord is verplichd")]
+        public string Password { get; set; }
     }
 }
 
