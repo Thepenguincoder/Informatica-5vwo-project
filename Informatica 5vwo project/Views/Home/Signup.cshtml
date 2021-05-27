@@ -15,19 +15,19 @@
         <form method="post">
             <p>Voornaam:</p>
             <div><input type="text" name="voornaam" placeholder="Uw voornaam" /></div>
-            <p class="verplicht">@Html.ValidationMessageFor(m => m.FirstName)</p>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.voornaam)</p>
 
             <p>Achternaam:</p>
             <div><input type="text" name="achternaam" placeholder="Uw achternaam" /></div>
-            <p class="verplicht">@Html.ValidationMessageFor(m => m.LastName)</p>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.achternaam)</p>
 
             <p>Email:</p>
             <div><input type="text" name="email" placeholder="voorbeeld@gmail.com" /></div>
-            <p class="verplicht">@Html.ValidationMessageFor(m => m.Email)</p>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.email)</p>
 
             <p>Wachtwoord:</p>
             <div><input type="text" name="wachtwoord" placeholder="Uw wachtwoord" /></div>
-            <p class="verplicht">@Html.ValidationMessageFor(m => m.Password)</p>
+            <p class="verplicht">@Html.ValidationMessageFor(m => m.wachtwoord)</p>
 
             <div><input type="submit" value="verstuur" /></div>
         </form>

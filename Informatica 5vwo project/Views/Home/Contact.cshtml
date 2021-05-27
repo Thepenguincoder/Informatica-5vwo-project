@@ -11,33 +11,6 @@
 <div class="contact-content">
     <h1 class="titel">@ViewData["Title"]</h1>
 
-    <div class="blok">
-        <form method="post">
-            <p>Voornaam:</p>
-            <div><input type="text" name="firstname" placeholder="Uw voornaam" /></div>
-            <p class="verplicht">@Html.ValidationMessageFor(m => m.FirstName)</p>
-            <p>Achternaam:</p>
-            <div><input type="text" name="lastname" placeholder="Uw achternaam" /></div>
-            <p class="verplicht">@Html.ValidationMessageFor(m => m.LastName)</p>
-            <p>Email:</p>
-            <div><input type="text" name="email" placeholder="voorbeeld@gmail.com" /></div>
-            <p class="verplicht">@Html.ValidationMessageFor(m => m.Email)</p>
-            <p>Telefoonnummer:</p>
-            <div><input type="text" name="phone" placeholder="Bijvoorbeeld: 0987654321" /></div>
-            <p>Adres:</p>
-            <div><input type="text" name="Address" placeholder="Straanlaan 11" /></div>
-            <p>Bericht:</p>
-            <div><input type="text" name="description" placeholder="Uw bericht aan ons" /></div>
-            <p class="verplicht">@Html.ValidationMessageFor(m => m.Description)</p>
-            <div><input type="submit" value="verstuur" /></div>
-        </form>
-
-
-        @if (Model != null)
-        {
-            <p>Hallo @Model.LastName, @Model.FirstName @Model.LastName</p>
-        }
-    </div>
 </div>
 
 <style>

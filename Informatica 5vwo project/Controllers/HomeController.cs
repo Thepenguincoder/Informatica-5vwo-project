@@ -232,7 +232,7 @@ namespace Informatica_5vwo_project.Controllers
             return View(person);
         }
 
-        [Route("singup")]
+        [Route("Signup")]
         public IActionResult Signup()
         {
             return View();
@@ -244,6 +244,7 @@ namespace Informatica_5vwo_project.Controllers
         {
             if (ModelState.IsValid)
             {
+                SavePerson(person);
                 return Redirect("Succes2");
             }
 
@@ -299,10 +300,10 @@ namespace Informatica_5vwo_project.Controllers
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO filmklant(voornaam, achternaam, email, wachtwoord) VALUE(?voornaam, ?achternaam, ?email, ?wachtwoord)", conn);
 
-                cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.FirstName;
-                cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
-                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
-                cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.Password;
+                cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.voornaam;
+                cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.achternaam;
+                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.email;
+                cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.wachtwoord;
                 cmd.ExecuteNonQuery();
             }
         }
