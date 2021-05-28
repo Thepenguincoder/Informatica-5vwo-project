@@ -20,8 +20,11 @@ namespace Informatica_5vwo_project.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
-        //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+
+        //https://informatica.st-maartenscollege.nl/phpmyadmin/index.php
+
+        //string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
+        string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;";
 
 
         public HomeController(ILogger<HomeController> logger)
@@ -126,14 +129,9 @@ namespace Informatica_5vwo_project.Controllers
         }
 
 
-
-
-
-
-
         private Films GetFilmsDetails(string id)
         {
-            
+
             List<Films> films = new List<Films>();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -161,6 +159,60 @@ namespace Informatica_5vwo_project.Controllers
 
             return films[0];
         }
+
+        private Klant GetKlant(string email)
+        {
+            List<Klant> klant = new List<Klant>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from filmklant where email = '{email}'", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Klant p = new Klant
+                        {
+                            Id = Convert.ToInt32(reader["id"]),
+                            Voornaam = reader["voornaam"].ToString(),
+                            Achternaam = reader["achternaam"].ToString(),
+                            Email = reader["email"].ToString(),
+                            Wachtwoord = reader["wachtwoord"].ToString()
+
+                        };
+                        klant.Add(p);
+                    }
+                }
+            }
+            return klant[0];
+        }
+
+
+
+
+
+
+
+
+        private void SavePerson(Person person)
+        {
+            person.wachtwoord = ComputeSha256Hash(person.wachtwoord);
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO filmklant(voornaam, achternaam, email, wachtwoord) VALUE(?voornaam, ?achternaam, ?email, ?wachtwoord)", conn);
+
+                cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.voornaam;
+                cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.achternaam;
+                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.email;
+                cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.wachtwoord;
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
 
         static string ComputeSha256Hash(string rawData)
         {
@@ -251,7 +303,29 @@ namespace Informatica_5vwo_project.Controllers
             return View(person);
         }
 
+        
+        [Route("login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
 
+        [Route("login")]
+        [HttpPost]
+        public IActionResult Login(string email, string wachtwoord)
+        {
+            var klant = GetKlant(email);
+
+            if (klant.Wachtwoord == ComputeSha256Hash(wachtwoord))
+            {
+                HttpContext.Session.SetInt32("User", klant.Id);
+                HttpContext.Session.SetString("UserName", klant.Voornaam);
+                return Redirect("/profiel");
+            }
+
+            return View();
+        }
+        
 
         [Route("Succes")]
         public IActionResult Succes()
@@ -265,49 +339,7 @@ namespace Informatica_5vwo_project.Controllers
             return View();
         }
 
-        [Route("Login")]
-        public IActionResult Login(string username, string password)
-        {
-            string hash = "dc00c903852bb19eb250aeba05e534a6d211629d77d055033806b783bae09937";
-
-            // is er een wachtwoord ingevoerd?
-            if (!string.IsNullOrWhiteSpace(password))
-            {
-
-                //Er is iets ingevoerd, nu kunnen we het wachtwoord hashen en vergelijken met de hash "uit de database"
-                string hashVanIngevoerdWachtwoord = ComputeSha256Hash(password);
-                if (hashVanIngevoerdWachtwoord == hash)
-                {
-                    HttpContext.Session.SetString("User", username);
-                    ViewData["user"] = HttpContext.Session.GetString("User");
-                    HttpContext.Session.SetString("Password", password);
-                    ViewData["password"] = HttpContext.Session.GetString("Password");
-                    return View();
-                }
-            }
-
-            return View();
-        }
-
-
         
-
-
-        private void SavePerson(Person person)
-        {          
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO filmklant(voornaam, achternaam, email, wachtwoord) VALUE(?voornaam, ?achternaam, ?email, ?wachtwoord)", conn);
-
-                cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.voornaam;
-                cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.achternaam;
-                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.email;
-                cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.wachtwoord;
-                cmd.ExecuteNonQuery();
-            }
-        }
-
 
 
 
