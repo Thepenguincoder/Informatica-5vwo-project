@@ -1,5 +1,5 @@
 ﻿@using Informatica_5vwo_project.Databases
-@model Informatica_5vwo_project.Databases.Films
+@model Informatica_5vwo_project.Databases.FilmViewModel
 
 
 
@@ -18,12 +18,12 @@
     <div class="blok">
         <img src="https://raw.githubusercontent.com/Thepenguincoder/Informatica-5vwo-project/OkayWeWorkFromThisNow/download%20(9).png" />
         <div class="film-text">
-            <p class="naam">@Model.Naam</p>
-            <p class="overige-info">@Model.Genres, @Model.Taal, @Model.Leeftijd</p>
-            <p class="datum-tijd">@Model.Datum, @Model.Begintijd - @Model.Eindtijd</p>
-            <p class="description">@Model.Beschrijving</p>
+            <p class="naam">@Model.Film.Naam</p>
+            <p class="overige-info">@Model.Film.Genres, @Model.Film.Taal, @Model.Film.Leeftijd</p>
+            <p class="datum-tijd">@Model.Film.Datum, @Model.Film.Begintijd - @Model.Film.Eindtijd</p>
+            <p class="description">@Model.Film.Beschrijving</p>
         </div>
-    </div>
+    </div>   
 </div>
 
 <style>

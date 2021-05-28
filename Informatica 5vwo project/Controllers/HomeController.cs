@@ -23,8 +23,8 @@ namespace Informatica_5vwo_project.Controllers
 
         //https://informatica.st-maartenscollege.nl/phpmyadmin/index.php
 
-        //string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //School
-        string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //Thuis
+        string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //School
+        //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //Thuis
 
 
         public HomeController(ILogger<HomeController> logger)
@@ -218,7 +218,12 @@ namespace Informatica_5vwo_project.Controllers
         [Route("details/{naam}")]
         public IActionResult Details(string naam)
         {
-            var model = GetFilmsDetails(naam);
+            var film = GetFilmsDetails(naam);
+            var model = new FilmViewModel();
+            model.Film = film;
+            // TOD
+            // model.Klanten = 
+
 
             return View(model);
         }
