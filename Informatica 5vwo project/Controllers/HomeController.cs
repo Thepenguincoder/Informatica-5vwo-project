@@ -32,6 +32,68 @@ namespace Informatica_5vwo_project.Controllers
             _logger = logger;
         }
 
+        
+        private Films GetFilmsDetails(string id)
+        {
+
+            List<Films> films = new List<Films>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // SQL query die we willen uitvoeren
+                MySqlCommand cmd = new MySqlCommand($"select * from films where id = {id}", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Films p = new Films
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Naam = reader["Naam"].ToString(),
+                            Beschrijving = reader["Beschrijving"].ToString(),
+                        };
+
+                        films.Add(p);
+                    }
+                }
+            }
+
+            return films[0];
+        }
+
+        public List<Voorstellingen> GetVoorstelling(string id)
+        {
+            List<Voorstellingen> voorstellingen = new List<Voorstellingen>();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from voorstelling where film_id = {id}", conn); ;
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Voorstellingen k = new Voorstellingen
+
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Datum = reader["Datum"].ToString(),
+                            Begintijd = reader["Begintijd"].ToString(),
+                            Eindtijd = reader["Eindtijd"].ToString(),
+                            Beschikbaarheid = reader["Beschikbaarheid"].ToString(),
+                        };
+                        voorstellingen.Add(k);
+                    }
+                }
+            }
+            return voorstellingen;
+        }
+
+
 
 
 
@@ -64,7 +126,6 @@ namespace Informatica_5vwo_project.Controllers
                             Naam = reader["Naam"].ToString(),
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Genres = reader["Genres"].ToString(),
-                            Datum = reader["Datum"].ToString(),
                             Leeftijd = reader["Leeftijd"].ToString(),
                             Taal = reader["Taal"].ToString(),
                             Poster = reader["poster"].ToString(),
@@ -80,38 +141,10 @@ namespace Informatica_5vwo_project.Controllers
             return films;
         }
 
+        
 
-        private Films GetFilmsDetails(string id)
-        {
 
-            List<Films> films = new List<Films>();
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-
-                // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand($"select * from films where id = {id}", conn);
-
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Films p = new Films
-                        {
-                            Id = Convert.ToInt32(reader["Id"]),
-                            Naam = reader["Naam"].ToString(),
-                            Beschrijving = reader["Beschrijving"].ToString(),
-                        };
-
-                        films.Add(p);
-                    }
-                }
-            }
-
-            return films[0];
-        }
-
+       
         private Klant GetKlant(string email)
         {
             List<Klant> klant = new List<Klant>();
@@ -140,11 +173,6 @@ namespace Informatica_5vwo_project.Controllers
             }
             return klant[0];
         }
-
-
-
-
-
 
 
 
@@ -219,11 +247,10 @@ namespace Informatica_5vwo_project.Controllers
         public IActionResult Details(string naam)
         {
             var film = GetFilmsDetails(naam);
+            var voorstellingen = GetVoorstelling(naam);
             var model = new FilmViewModel();
             model.Film = film;
-            // TOD
-            // model.Klanten = 
-
+            model.Voorstellingen = voorstellingen;
 
             return View(model);
         }

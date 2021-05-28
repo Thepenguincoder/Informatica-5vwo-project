@@ -9,6 +9,6 @@ namespace Informatica_5vwo_project.Databases
     {
         public Films Film {get;set;}
 
-        public List<Klant> Klanten {get;set;}
+        public List<Voorstellingen> Voorstellingen {get;set;}
     }
 }

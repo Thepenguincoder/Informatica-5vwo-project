@@ -22,6 +22,10 @@
             <p class="overige-info">@Model.Film.Genres, @Model.Film.Taal, @Model.Film.Leeftijd</p>
             <p class="datum-tijd">@Model.Film.Datum, @Model.Film.Begintijd - @Model.Film.Eindtijd</p>
             <p class="description">@Model.Film.Beschrijving</p>
+            @foreach (Voorstellingen v in Model.Voorstellingen)
+            {
+                <p>@v.Datum</p>
+            }
         </div>
     </div>   
 </div>
