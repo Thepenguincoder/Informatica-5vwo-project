@@ -112,10 +112,9 @@ namespace Informatica_5vwo_project.Controllers
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Genres = reader["Genres"].ToString(),
                             Datum = reader["Datum"].ToString(),
-                            Begintijd = reader["Begintijd"].ToString(),
-                            Eindtijd = reader["Eindtijd"].ToString(),
                             Leeftijd = reader["Leeftijd"].ToString(),
                             Taal = reader["Taal"].ToString(),
+                            Poster = reader["poster"].ToString(),
                         };
 
                         // voeg de naam toe aan de lijst met namen

@@ -24,5 +24,7 @@ namespace Informatica_5vwo_project.Databases
         public string Leeftijd { get; set; }
 
         public string Taal { get; set; }
+
+        public string Poster { get; set; }
     }
 }
