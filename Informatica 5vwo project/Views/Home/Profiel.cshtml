@@ -1,0 +1,30 @@
+﻿@model Informatica_5vwo_project.Databases.Person
+
+@{
+    ViewData["Title"] = "Profiel pagina";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="contact-content">
+    <h1 class="titel">@ViewData["Title"]</h1>
+
+    <div class="blok">
+        <h2>Uw gegevens</h2>
+        <p>Voornaam: @ViewData["UserName"]</p>
+        <p>Achternaam: @ViewData["UserLastName"]</p>
+        <p>Email: @ViewData["UserEmail"]</p>
+    </div>
+</div>
+
+<style>
+    h2{
+        font-size: xx-large;
+    }
+
+    p {
+        color: black;
+    }
+</style>

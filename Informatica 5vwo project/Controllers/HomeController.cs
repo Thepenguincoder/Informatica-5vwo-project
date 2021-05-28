@@ -23,8 +23,8 @@ namespace Informatica_5vwo_project.Controllers
 
         //https://informatica.st-maartenscollege.nl/phpmyadmin/index.php
 
-        string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //School
-        //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //Thuis
+        //string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //School
+        string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //Thuis
 
 
         public HomeController(ILogger<HomeController> logger)
@@ -290,12 +290,22 @@ namespace Informatica_5vwo_project.Controllers
             {
                 HttpContext.Session.SetInt32("User", klant.Id);
                 HttpContext.Session.SetString("UserName", klant.Voornaam);
-                return Redirect("/profiel");
+                HttpContext.Session.SetString("UserLastName", klant.Achternaam);
+                HttpContext.Session.SetString("UserEmail", klant.Email);
+                return Redirect("Profiel");
             }
 
             return View();
         }
         
+        [Route("Profiel")]
+        public IActionResult Profiel()
+        {
+            ViewData["UserName"] = HttpContext.Session.GetString("UserName");
+            ViewData["UserLastName"] = HttpContext.Session.GetString("UserLastName");
+            ViewData["UserEmail"] = HttpContext.Session.GetString("UserEmail");
+            return View();
+        }
 
         [Route("Succes")]
         public IActionResult Succes()
