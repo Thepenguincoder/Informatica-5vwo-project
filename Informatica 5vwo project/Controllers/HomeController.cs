@@ -35,53 +35,6 @@ namespace Informatica_5vwo_project.Controllers
 
 
 
-
-
-
-
-
-        public List<string> GetNames()
-        {
-           
-
-            // maak een lege lijst waar we de namen in gaan opslaan
-            List<string> names = new List<string>();
-
-            // verbinding maken met de database
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                // verbinding openen
-                conn.Open();
-
-                // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand("select * from films", conn);
-
-                // resultaat van de query lezen
-                using (var reader = cmd.ExecuteReader())
-                {
-                    // elke keer een regel (of eigenlijk: database rij) lezen
-                    while (reader.Read())
-                    {
-                        // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
-                        string Name = reader["beschrijving"].ToString();
-
-                        // voeg de naam toe aan de lijst met namen
-                        names.Add(Name);
-                    }
-                }
-            }
-
-            // return de lijst met namen
-            return names;
-        }
-
-
-
-
-
-
-
-
         public List<Films> GetFilmsOverzicht()
         {
 
@@ -211,6 +164,18 @@ namespace Informatica_5vwo_project.Controllers
             }
         }
 
+        private void SaveBericht(Contactform contactform)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO contactform(email, bericht) VALUE(?email, ?bericht)", conn);
+
+                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = contactform.Email;
+                cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = contactform.Bericht;
+                cmd.ExecuteNonQuery();
+            }
+        }
 
 
         static string ComputeSha256Hash(string rawData)
@@ -273,14 +238,15 @@ namespace Informatica_5vwo_project.Controllers
 
         [Route("Contact")]
         [HttpPost]
-        public IActionResult Contact(Person person)
+        public IActionResult Contact(Contactform contactform)
         {
             if (ModelState.IsValid) 
             {
+                SaveBericht(contactform);
                 return Redirect("Succes");
             }
 
-            return View(person);
+            return View(contactform);
         }
 
         [Route("Signup")]
