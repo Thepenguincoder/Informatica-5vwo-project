@@ -16,17 +16,17 @@
     <h1 class="titel">@ViewData["Title"]</h1>
 
     <div class="blok">
-        <img src="https://raw.githubusercontent.com/Thepenguincoder/Informatica-5vwo-project/OkayWeWorkFromThisNow/download%20(9).png" />
-        <div class="film-text">
-            <p class="naam">@Model.Film.Naam</p>
-            <p class="overige-info">@Model.Film.Genres, @Model.Film.Taal, @Model.Film.Leeftijd</p>
-            <p class="datum-tijd">@Model.Film.Datum, @Model.Film.Begintijd - @Model.Film.Eindtijd</p>
-            <p class="description">@Model.Film.Beschrijving</p>
-            @foreach (Voorstellingen v in Model.Voorstellingen)
-            {
-                <p>@v.Datum</p>
-            }
-        </div>
+        <a class="poster" href="https://localhost:44314/details/@Model.Film.Id"><img src="@Model.Film.Poster" /></a>
+        <p class="naam">@Model.Film.Naam</p>
+        <p>Genre(s): @Model.Film.Genres</p>
+        <p>Taal en leeftijd: @Model.Film.Taal, @Model.Film.Leeftijd</p>
+        <p>@Model.Film.Beschrijving</p>
+        <p class="voorstellingen">Voorstellingen:</p>
+        @foreach (Voorstellingen v in Model.Voorstellingen)
+        {
+            <p>@v.Datum, @v.Begintijd - @v.Eindtijd</p>
+            <p>Nog: @v.Beschikbaarheid tickets over</p>
+        }
     </div>   
 </div>
 
@@ -35,6 +35,18 @@
         float: left;
         margin-right: 1vw;
         border-radius: 5px;
+        height: 65vh;
+        width: auto;
+    }
+
+    .naam {
+        font-weight: bold;
+        font-size: x-large
+    }
+
+    .voorstellingen {
+        font-weight: bold;
+        margin-top: 4vh;
     }
 
 </style>
