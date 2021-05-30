@@ -16,7 +16,7 @@
     <h1 class="titel">@ViewData["Title"]</h1>
 
     <div class="blok">
-        <a class="poster" href="https://localhost:44314/details/@Model.Film.Id"><img src="@Model.Film.Poster" /></a>
+        <a href="https://localhost:44314/details/@Model.Film.Id"><img class="poster" src="@Model.Film.Poster" /></a>
         <p class="naam">@Model.Film.Naam</p>
         <p>Genre(s): @Model.Film.Genres</p>
         <p>Taal en leeftijd: @Model.Film.Taal, @Model.Film.Leeftijd</p>
@@ -31,30 +31,4 @@
     </div>   
 </div>
 
-<style>
-    img {
-        float: left;
-        margin-right: 1vw;
-        border-radius: 5px;
-        height: 65vh;
-        width: auto;
-    }
-
-    .naam {
-        font-weight: bold;
-        font-size: x-large
-    }
-
-    .voorstellingen {
-        font-weight: bold;
-        margin-top: 4vh;
-    }
-
-    .betalen {
-        font-weight: bold;
-        text-decoration: none;
-        color: black;
-    }
-
-</style>
 

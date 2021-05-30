@@ -37,8 +37,104 @@
 
 h1 {
     color: white;
+    margin: 1vw 0vw 0vw 11vw
 }
 
 p {
-    color: white;
+    color: black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* Opmaak specifiek  voor de Overzicht pagina */
+.naam {
+    font-weight: bold;
+    font-size: x-large
+}
+
+.poster img {
+    float: left;
+    margin-right: 1vw;
+    border-radius: 5px;
+    height: 32vh;
+    width: auto;
+}
+
+.film-info {
+    float: left;
+    display: block;
+    border-radius: 5px;
+    background-color: orangered;
+    color: black;
+    font-size: large;
+    text-align: justify;
+    text-decoration: none;
+    padding: 2vw;
+    width: 80vw;
+    height: auto;
+    margin: 1vw 0vw 1vw 10vw;
+}
+
+.film-text p{
+    color: black;
+}
+
+
+/* Opmaak specifiek  voor de Home pagina */
+.Home-content {
+    background-image: url(https://raw.githubusercontent.com/Thepenguincoder/Informatica-5vwo-project/OkayWeWorkFromThisNow/cinemaitaliano.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 85vh;
+    width: 100vw;
+    opacity: 0.9;
+}
+
+.film-poster img {
+    border: 1px solid #F59C00;
+    object-fit: contain;
+    background-color: black;
+    margin-top: 10vh;
+}
+
+.film-poster1 {
+    height: 40vh;
+    min-height: 30vw;
+    max-height: 45vw;
+    width: 20vw;
+    margin-left: 19vw;
+}
+
+.film-poster2 {
+    height: 40vh;
+    min-height: 30vw;
+    max-height: 45vw;
+    width: 20vw;
+    margin-left: 1vw;
+}
+
+.film-poster3 {
+    height: 40vh;
+    min-height: 30vw;
+    max-height: 45vw;
+    width: 20vw;
+    margin-left: 1vw;
+}
+
+.body-text {
+    text-decoration: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: xx-large;
+    line-height: 28px; /* Gray 6 */
+    color: #F2F2F2;
+    margin-left: 28.5vw;
+    margin-right: auto;
+    width: 30%;
 }

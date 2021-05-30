@@ -49,3 +49,73 @@ h1 {
     margin-left: 11vw;
     color: white;
 }
+
+h2 {
+    font-size: xx-large;
+}
+
+p {
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* Opmaak specifiek voor de contact, signup en login pagina */
+input {
+    width: 50%;
+    padding: 1vh 1vw;
+    border: solid #999;
+    border-radius: 5px;
+    background-color: #eee;
+    box-sizing: border-box;
+}
+
+    input[type=submit] {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        width: 25%;
+        padding: 1vh 1vw;
+        border: solid #888;
+        border-radius: 5px;
+        background-color: #bbb;
+    }
+
+.verplicht {
+    margin-top: 1vw;
+}
+
+
+/* Opmaak specifiek  voor de details pagina */
+.poster {
+    float: left;
+    margin-right: 1vw;
+    border-radius: 5px;
+    height: 65vh;
+    width: auto;
+}
+
+.naam {
+    font-weight: bold;
+    font-size: x-large
+}
+
+.voorstellingen {
+    font-weight: bold;
+    margin-top: 4vh;
+}
+
+.betalen {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+
+/* Opmaak specifiek  voor de login pagina */
+.account {
+    font-size: large;
+}
