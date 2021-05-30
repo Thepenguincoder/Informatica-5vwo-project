@@ -268,6 +268,12 @@ namespace Informatica_5vwo_project.Controllers
             return View();
         }
 
+        [Route("Betalen")]
+        public IActionResult Betalen()
+        {
+            return View();
+        }
+
         [Route("Contact")]
         [HttpPost]
         public IActionResult Contact(Contactform contactform)

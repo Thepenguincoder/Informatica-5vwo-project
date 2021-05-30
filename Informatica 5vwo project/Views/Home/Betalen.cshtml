@@ -1,0 +1,40 @@
+﻿@model Informatica_5vwo_project.Databases.Person
+
+@{
+    ViewData["Title"] = "Betaal pagina";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="betalen-content">
+    <h1 class="titel">@ViewData["Title"]</h1>
+
+    <div class="blok">
+        <h2>Betalingswijze</h2>
+        <ol>
+            <li>Scan met uw telefoon de QR-code via de Kalium app of voer het ban_adres in</li>
+            <li>Voer het juiste geldbedrag in dat aangegeven staat op de site, dit wordt automatisch geconverteerd naar het juiste aantal Banano</li>
+            <li>Klik op Send en dan is uw betaling voltooid</li>
+        </ol>
+        <br>
+        <p></p>
+        <ol>
+            <li>Navigeer naar uw wallet op de website: https://vault.banano.cc/ Dit kan zowel gedaan worden op uw telefoon of computer</li>
+            <li>Voer het ban_adres van De Beschouwburg in</li>
+            <li>Voer het juiste geldbedrag in dat aangegeven staat op de site, dit wordt automatisch geconverteerd naar het juiste aantal Banano</li>
+        </ol>
+    </div>
+</div>
+
+<style>
+    h2{
+        font-size: xx-large;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
