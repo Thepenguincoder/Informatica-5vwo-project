@@ -16,12 +16,11 @@
         @foreach (Films p in Model)
         {
         <div class="film-info">
-            <a class="poster" href="https://localhost:44314/details/@p.Id">
-            <img src="@p.Poster" />
-            </a>
+            <a class="poster" href="https://localhost:44314/details/@p.Id"><img src="@p.Poster"/></a>
             <div class="film-text">
                 <p class="naam"><a href="https://localhost:44314/details/@p.Id">@p.Naam</a></p>
-                <p class="overige-info">@p.Genres, @p.Taal, @p.Leeftijd</p>
+                <p>Genre(s): @p.Genres</p>
+                <p>Taal en leeftijd: @p.Taal, @p.Leeftijd</p>
                 <p class="description">@p.Beschrijving</p>
             </div>
         </div>
@@ -31,8 +30,9 @@
 </div>
 
 <style>
-    img {
-
+    .naam {
+        font-weight: bold;
+        font-size: x-large
     }
 
     a {
@@ -44,10 +44,12 @@
         margin: 1vw 0vw 0vw 11vw;
     }
 
-    .poster img{
+    .poster img {
         float: left;
         margin-right: 1vw;
         border-radius: 5px;
+        height: 32vh;
+        width: auto;
     }
 
     .film-info {
@@ -63,5 +65,11 @@
         width: 80vw;
         height: auto;
         margin: 1vw 0vw 1vw 10vw;
+        border-width: thin;
+        border-color: white;
+    }
+
+    p {
+
     }
 </style>
