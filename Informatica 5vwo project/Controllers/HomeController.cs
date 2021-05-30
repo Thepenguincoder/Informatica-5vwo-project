@@ -89,6 +89,7 @@ namespace Informatica_5vwo_project.Controllers
                             Begintijd = reader["Begintijd"].ToString(),
                             Eindtijd = reader["Eindtijd"].ToString(),
                             Beschikbaarheid = reader["Beschikbaarheid"].ToString(),
+                            Zaal = reader["Zaal"].ToString(),
                         };
                         voorstellingen.Add(k);
                     }

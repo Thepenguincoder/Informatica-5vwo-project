@@ -19,6 +19,6 @@ namespace Informatica_5vwo_project.Databases
 
         public string Beschikbaarheid { get; set; }
 
-
+        public string Zaal { get; set; }
     }
 }

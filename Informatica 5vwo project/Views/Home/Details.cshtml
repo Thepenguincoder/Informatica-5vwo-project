@@ -24,9 +24,10 @@
         <p class="voorstellingen">Voorstellingen:</p>
         @foreach (Voorstellingen v in Model.Voorstellingen)
         {
-            <p>@v.Datum, @v.Begintijd - @v.Eindtijd</p>
+            <p>@v.Datum, @v.Begintijd - @v.Eindtijd, zaal @v.Zaal</p>
             <p>Nog: @v.Beschikbaarheid tickets over</p>
         }
+        <p><a class="betalen" href="https://localhost:44314/betalen">Klik hier tickets te kopen.</a></p>
     </div>   
 </div>
 
@@ -47,6 +48,12 @@
     .voorstellingen {
         font-weight: bold;
         margin-top: 4vh;
+    }
+
+    .betalen {
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
     }
 
 </style>
