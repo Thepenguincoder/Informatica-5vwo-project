@@ -54,6 +54,10 @@ namespace Informatica_5vwo_project.Controllers
                             Id = Convert.ToInt32(reader["Id"]),
                             Naam = reader["Naam"].ToString(),
                             Beschrijving = reader["Beschrijving"].ToString(),
+                            Genres = reader["Genres"].ToString(),
+                            Leeftijd = reader["Leeftijd"].ToString(),
+                            Taal = reader["Taal"].ToString(),
+                            Poster = reader["poster"].ToString(),
                         };
 
                         films.Add(p);
