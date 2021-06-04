@@ -11,7 +11,7 @@ namespace Informatica_5vwo_project.Databases
 
         public string FilmId { get; set; }
 
-        public string Datum { get; set; }
+        public DateTime Datum { get; set; }
 
         public string Begintijd { get; set; }
 

@@ -24,7 +24,7 @@
         <p class="voorstellingen">Voorstellingen:</p>
         @foreach (Voorstellingen v in Model.Voorstellingen)
         {
-            <p>@v.Datum, @v.Begintijd - @v.Eindtijd, zaal @v.Zaal</p>
+            <p>@v.Datum.ToString("yyyy-MM-dd"), @v.Begintijd - @v.Eindtijd, zaal @v.Zaal</p>
             <p>Nog: @v.Beschikbaarheid tickets over</p>
         }
         <p><a class="betalen" href="https://localhost:44314/betalen">Klik hier tickets te kopen.</a></p>

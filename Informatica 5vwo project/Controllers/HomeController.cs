@@ -23,8 +23,8 @@ namespace Informatica_5vwo_project.Controllers
 
         //https://informatica.st-maartenscollege.nl/phpmyadmin/index.php
 
-        //string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //School
-        string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //Thuis
+        string connectionString = "Server=172.16.160.21;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //School
+        //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110411;Uid=110411;Pwd=inf2021sql;"; //Thuis
 
 
         public HomeController(ILogger<HomeController> logger)
@@ -85,7 +85,7 @@ namespace Informatica_5vwo_project.Controllers
 
                         {
                             Id = Convert.ToInt32(reader["Id"]),
-                            Datum = reader["Datum"].ToString(),
+                            Datum = Convert.ToDateTime(reader["Datum"].ToString()),
                             Begintijd = reader["Begintijd"].ToString(),
                             Eindtijd = reader["Eindtijd"].ToString(),
                             Beschikbaarheid = reader["Beschikbaarheid"].ToString(),
