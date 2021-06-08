@@ -119,3 +119,20 @@ input {
 .account {
     font-size: large;
 }
+
+/* Opnaak specifiek voor de error pagina */
+.error-content {
+    text-align:center;
+}
+.link a {
+    color: #136CB2;
+    text-decoration:underline ;
+}
+.error-content .blok a{
+    font-size: medium;
+}
+
+.error-content h1 {
+    margin-left: 5vw;
+}
+
