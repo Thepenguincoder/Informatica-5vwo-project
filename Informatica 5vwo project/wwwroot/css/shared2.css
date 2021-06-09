@@ -136,3 +136,7 @@ input {
     margin-left: 5vw;
 }
 
+.error-content img {
+    height: 32vh;
+    width: auto;
+}
