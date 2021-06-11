@@ -230,13 +230,7 @@ namespace Informatica_5vwo_project.Controllers
         }
 
 
-        [Route("")]
-        public IActionResult Home()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
             return View();
         }
