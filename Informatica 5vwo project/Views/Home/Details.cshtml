@@ -16,7 +16,7 @@
     <h1 class="titel">@ViewData["Title"]</h1>
 
     <div class="blok">
-        <a href="https://localhost:44314/details/@Model.Film.Id"><img class="poster" src="@Model.Film.Poster" /></a>
+        <a href="/details/@Model.Film.Id"><img class="poster" src="@Model.Film.Poster" /></a>
         <p class="naam">@Model.Film.Naam</p>
         <p>Genre(s): @Model.Film.Genres</p>
         <p>Taal en leeftijd: @Model.Film.Taal, @Model.Film.Leeftijd</p>
@@ -27,7 +27,7 @@
             <p>@v.Datum.ToString("yyyy-MM-dd"), @v.Begintijd - @v.Eindtijd, zaal @v.Zaal</p>
             <p>Nog: @v.Beschikbaarheid tickets over</p>
         }
-        <p><a class="betalen" href="https://localhost:44314/betalen">Klik hier tickets te kopen.</a></p>
+        <p><a class="betalen" href="/betalen">Klik hier tickets te kopen.</a></p>
     </div>   
 </div>
 

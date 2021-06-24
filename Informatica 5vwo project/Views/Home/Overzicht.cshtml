@@ -16,9 +16,9 @@
         @foreach (Films p in Model)
         {
         <div class="film-info">
-            <a class="poster" href="https://localhost:44314/details/@p.Id"><img src="@p.Poster"/></a>
+            <a class="poster" href="/details/@p.Id"><img src="@p.Poster"/></a>
             <div class="film-text">
-                <p class="naam"><a href="https://localhost:44314/details/@p.Id">@p.Naam</a></p>
+                <p class="naam"><a href="/details/@p.Id">@p.Naam</a></p>
                 <p>Genre(s): @p.Genres</p>
                 <p>Taal en leeftijd: @p.Taal, @p.Leeftijd</p>
                 <p class="description">@p.Beschrijving</p>
